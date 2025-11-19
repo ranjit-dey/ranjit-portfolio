@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
 import {
     FaReact,
     FaHtml5,
@@ -11,11 +12,12 @@ import {
     FaLinkedinIn,
     FaExternalLinkAlt,
 } from 'react-icons/fa'
-import {  FaMobileAlt } from "react-icons/fa";
-import { FiServer } from "react-icons/fi";
+
+import { FaMobileAlt } from 'react-icons/fa'
+import { FcIdea } from 'react-icons/fc'
+import { FiServer } from 'react-icons/fi'
 import { SiTailwindcss, SiFramer } from 'react-icons/si'
 import { FaX } from 'react-icons/fa6'
-import { CiLight } from "react-icons/ci";
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -35,18 +37,22 @@ const projects = [
         desc: 'Build a pdf merger',
         link: 'https://ranjit-dey.github.io/pdf-merger/',
     },
-    { id: 3, title: 'Memory Vault', desc: 'Simple task management.', link: 'https://github.com/ranjit-dey/memory-vault' },
+    {
+        id: 3,
+        title: 'Memory Vault',
+        desc: 'Simple task management.',
+        link: 'https://github.com/ranjit-dey/memory-vault',
+    },
 ]
 
 const experiences = [
     {
         company: 'Euphoria GenX',
-        role: 'MERN Stack',
+        role: 'MERN Stack Intern',
         period: 'Jul 2025 - Sep 2025',
         bullets: ['Built UI with React & Tailwind', 'Improved accessibility and responsiveness'],
     },
 ]
-
 
 const SKILLS = [
     { name: 'React', icon: <FaReact size={28} />, pct: 92 },
@@ -132,13 +138,7 @@ export default function App() {
 
                     <div className="hidden md:flex items-center gap-6">
                         <ul className="flex items-center gap-6 capitalize">
-                            {[
-                                'about',
-                                'projects',
-                                'skills',
-                                'experience',
-                                'contact',
-                            ].map((s) => (
+                            {['about', 'projects', 'skills', 'experience', 'contact'].map((s) => (
                                 <li key={s} className="nav-item">
                                     <a
                                         href={`#${s}`}
@@ -154,7 +154,6 @@ export default function App() {
                             className="px-3 py-1 rounded border-white/60"
                         >
                             {theme === 'dark' ? `☀️ Light` : '🌙 Dark'}
-
                         </button>
                     </div>
 
@@ -223,7 +222,10 @@ export default function App() {
                                     >
                                         Demo
                                     </a>
-                                    <a href={p.link} className="text-sm flex gap-2 items-center justify-center border px-3 py-1  rounded border-white/30">
+                                    <a
+                                        href={p.link}
+                                        className="text-sm flex gap-2 items-center justify-center border px-3 py-1  rounded border-white/30"
+                                    >
                                         Source {<FaExternalLinkAlt />}
                                     </a>
                                 </div>
@@ -298,14 +300,18 @@ export default function App() {
                                 </div>
                                 <ul className="mt-2 list-disc list-inside text-sm">
                                     {e.bullets.map((b, i) => (
-                                        <li key={i}>{b}</li>
+                                        <li key={i} className="flex items-center gap-3 mb-2">
+                                            <span className="w-8 h-8 flex items-center justify-center rounded-md bg-[#FECB12]/20 text-[#FECB12]">
+                                                <FcIdea size={16} />
+                                            </span>
+                                            <p className="text-gray-700 dark:text-gray-300">{b}</p>
+                                        </li>
                                     ))}
                                 </ul>
                             </div>
                         ))}
                     </div>
                 </section>
-
 
                 <section id="contact" className="mt-20 reveal scroll-mt-24">
                     <h2 className="text-3xl font-bold">Contact</h2>

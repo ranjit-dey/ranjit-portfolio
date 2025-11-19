@@ -1,9 +1,20 @@
 import React, { useEffect, useState, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { FaReact, FaHtml5, FaCss3Alt, FaJsSquare, FaNodeJs, FaGithub, FaLinkedinIn } from 'react-icons/fa'
+import {
+    FaReact,
+    FaHtml5,
+    FaCss3Alt,
+    FaJsSquare,
+    FaNodeJs,
+    FaGithub,
+    FaLinkedinIn,
+} from 'react-icons/fa'
+import {  FaMobileAlt } from "react-icons/fa";
+import { FiServer } from "react-icons/fi";
 import { SiTailwindcss, SiFramer } from 'react-icons/si'
 import { FaX } from 'react-icons/fa6'
+import { CiLight } from "react-icons/ci";
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -14,13 +25,13 @@ const projects = [
     {
         id: 1,
         title: 'Portfolio Website',
-        desc: 'Responsive portfolio with animations and custom cursor.',
-        link: '#',
+        desc: 'Responsive portfolio with animations',
+        link: 'https://ranjitdey.vercel.app',
     },
     {
         id: 2,
-        title: 'E-commerce UI',
-        desc: 'Component-driven UI with product cards and filters.',
+        title: 'PDF Merger',
+        desc: 'Build a pdf merger',
         link: '#',
     },
     { id: 3, title: 'Admin Dashboard', desc: 'Charts, tables, and a clean admin UX.', link: '#' },
@@ -28,17 +39,13 @@ const projects = [
 
 const experiences = [
     {
-        company: 'Kalolwala Associates',
-        role: 'Frontend Intern',
-        period: 'Jun 2025 - Aug 2025',
+        company: 'Euphoria GenX',
+        role: 'MERN Stack',
+        period: 'Jul 2025 - Sep 2025',
         bullets: ['Built UI with React & Tailwind', 'Improved accessibility and responsiveness'],
     },
 ]
 
-const certifications = [
-    { title: 'Frontend Dev', issuer: 'Coursera', year: 2024 },
-    { title: 'React - Advanced', issuer: 'Udemy', year: 2025 },
-]
 
 const SKILLS = [
     { name: 'React', icon: <FaReact size={28} />, pct: 92 },
@@ -129,7 +136,6 @@ export default function App() {
                                 'projects',
                                 'skills',
                                 'experience',
-                                'certification',
                                 'contact',
                             ].map((s) => (
                                 <li key={s} className="nav-item">
@@ -144,9 +150,10 @@ export default function App() {
                         </ul>
                         <button
                             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                            className="p-2 rounded border"
+                            className="px-3 py-1 rounded border-white/60"
                         >
-                            {theme === 'dark' ? 'Light' : 'Dark'}
+                            {theme === 'dark' ? `☀️ Light` : '🌙 Dark'}
+
                         </button>
                     </div>
 
@@ -231,18 +238,46 @@ export default function App() {
                     </p>
 
                     <div className="mt-6 grid md:grid-cols-2 gap-6">
-                        <div className="p-6 rounded-lg shadow bg-gradient-to-br from-white/5 to-white/2">
+                        <div className="p-6 rounded-lg shadow bg-linear-to-br from-white/5 to-white/2">
                             <h4 className="font-semibold mb-4">Core Skills</h4>
                             <SkillsGrid />
                         </div>
 
-                        <div className="p-6 rounded-lg shadow">
-                            <h4 className="font-semibold">Tools & Workflow</h4>
-                            <ul className="mt-3 list-disc list-inside text-sm space-y-1">
-                                <li>Git & GitHub — source control & PR-based workflow</li>
-                                <li>REST APIs — fetch and integrate backend services</li>
-                                <li>Responsive-first design and accessibility best practices</li>
-                                <li>Testing (basic unit & integration) and CI/CD concepts</li>
+                        <div className="p-6 rounded-lg shadow self-start bg-linear-to-br from-white/5 to-white/2">
+                            <h4 className="font-semibold text-gray-900 dark:text-gray-100">
+                                Tools & Workflow
+                            </h4>
+
+                            <ul className="mt-4 text-sm space-y-3">
+                                {/* Git + GitHub */}
+                                <li className="flex items-center gap-3">
+                                    <span className="w-8 h-8 flex items-center justify-center rounded-md bg-[#FECB12]/20 text-[#FECB12]">
+                                        <FaGithub size={16} />
+                                    </span>
+                                    <p className="text-gray-700 dark:text-gray-300">
+                                        Git & GitHub — source control & PR-based workflow
+                                    </p>
+                                </li>
+
+                                {/* REST API */}
+                                <li className="flex items-center gap-3">
+                                    <span className="w-8 h-8 flex items-center justify-center rounded-md bg-[#FECB12]/20 text-[#FECB12]">
+                                        <FiServer size={16} />
+                                    </span>
+                                    <p className="text-gray-700 dark:text-gray-300">
+                                        REST APIs — fetch and integrate backend services
+                                    </p>
+                                </li>
+
+                                {/* Responsive + Accessibility */}
+                                <li className="flex items-center gap-3">
+                                    <span className="w-8 h-8 flex items-center justify-center rounded-md bg-[#FECB12]/20 text-[#FECB12]">
+                                        <FaMobileAlt size={16} />
+                                    </span>
+                                    <p className="text-gray-700 dark:text-gray-300">
+                                        Responsive-first design and accessibility best practices
+                                    </p>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -270,19 +305,6 @@ export default function App() {
                     </div>
                 </section>
 
-                <section id="certification" className="mt-20 reveal scroll-mt-24">
-                    <h2 className="text-3xl font-bold">Certification</h2>
-                    <div className="mt-6 grid md:grid-cols-2 gap-4">
-                        {certifications.map((c, i) => (
-                            <div key={i} className="p-4 rounded-lg shadow">
-                                <div className="font-semibold">{c.title}</div>
-                                <div className="text-sm text-gray-300">
-                                    {c.issuer} • {c.year}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </section>
 
                 <section id="contact" className="mt-20 reveal scroll-mt-24">
                     <h2 className="text-3xl font-bold">Contact</h2>
@@ -297,7 +319,7 @@ export default function App() {
                                 <a
                                     href="https://github.com/ranjit-dey"
                                     aria-label="GitHub"
-                                    target='_blank'
+                                    target="_blank"
                                     className="w-10 h-10 rounded-full flex items-center justify-center border"
                                 >
                                     <FaGithub />
@@ -306,13 +328,13 @@ export default function App() {
                                     href="https://www.linkedin.com/in/ranjitdey/"
                                     aria-label="LinkedIn"
                                     className="w-10 h-10 rounded-full flex items-center justify-center border"
-                                    target='_blank'
+                                    target="_blank"
                                 >
                                     <FaLinkedinIn />
                                 </a>
                                 <a
                                     href="https://x.com/ranjitdey_"
-                                    target='_blank'
+                                    target="_blank"
                                     aria-label="Twitter"
                                     className="w-10 h-10 rounded-full flex items-center justify-center border"
                                 >
@@ -429,7 +451,7 @@ function MobileMenu({ setTheme, theme }) {
                         ].map((s) => (
                             <li
                                 key={s}
-                                className="capitalize py-2 border-b"
+                                className="capitalize py-2 border-b text-amber-400"
                                 onClick={() => {
                                     setOpen(false)
                                     document

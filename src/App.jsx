@@ -9,6 +9,7 @@ import {
     FaNodeJs,
     FaGithub,
     FaLinkedinIn,
+    FaExternalLinkAlt,
 } from 'react-icons/fa'
 import {  FaMobileAlt } from "react-icons/fa";
 import { FiServer } from "react-icons/fi";
@@ -217,13 +218,13 @@ export default function App() {
                                 <div className="mt-4 flex items-center gap-3">
                                     <a
                                         href={p.link}
-                                        className="px-3 py-2 rounded-md"
+                                        className="text-sm flex gap-2 items-center justify-center border px-3 py-1  rounded border-amber-500"
                                         style={{ background: 'rgba(0,0,0,0.06)' }}
                                     >
                                         Demo
                                     </a>
-                                    <a href={p.link} className="text-sm underline">
-                                        Source
+                                    <a href={p.link} className="text-sm flex gap-2 items-center justify-center border px-3 py-1  rounded border-white/30">
+                                        Source {<FaExternalLinkAlt />}
                                     </a>
                                 </div>
                             </article>
@@ -348,6 +349,7 @@ export default function App() {
                 <footer className="mt-20 py-8 border-t">
                     <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                         <div>© {new Date().getFullYear()} Ranjit. All rights reserved.</div>
+                        <p>ranjitdey05265@gmail.com</p>
                         <div className="flex items-center gap-4">
                             <a href="#contact" className="hover:text-">
                                 Contact

@@ -32,9 +32,9 @@ const projects = [
         id: 2,
         title: 'PDF Merger',
         desc: 'Build a pdf merger',
-        link: '#',
+        link: 'https://ranjit-dey.github.io/pdf-merger/',
     },
-    { id: 3, title: 'Admin Dashboard', desc: 'Charts, tables, and a clean admin UX.', link: '#' },
+    { id: 3, title: 'Memory Vault', desc: 'Simple task management.', link: 'https://github.com/ranjit-dey/memory-vault' },
 ]
 
 const experiences = [
